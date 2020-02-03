@@ -1,0 +1,32 @@
+<html>
+<head>
+    <header>
+        <title>Menu</title>
+        
+    </header>
+    
+</head>
+<body>
+
+    <h1> Elige los productos que deseas ordenar </h1>    
+    <form name="formulario" method="post" action="admin">
+        <!-- Lista de selección -->
+        Selecciona la opción deseada:
+        <select name="Elige tu pedido">
+
+            {% for variable in productos %}
+            <!-- Opciones de la lista -->
+            <option>{{variable.nombre}}</option>
+           
+            {% endfor%}
+
+        </select>
+        <input type="submit" value="Agregar otro producto">
+        <input type="submit" value="Realizar Pedido">
+      </form>
+      
+    
+
+</body>
+</html>
+
