@@ -13,7 +13,8 @@ def hacer_pedido(request):
 
     productos = Producto.objects.all() 
     '''
-    envio al template los productos para mostrar
+    envio al template la lista de productos para su visualizacion 
+    
     '''
     doc = get_template("menu.html")
     documento = doc.render({"productos":productos})
@@ -21,16 +22,20 @@ def hacer_pedido(request):
     return HttpResponse(documento)
 
 def cambiar_estado(request):
+    pedidos = Pedido.objects.all()
     '''
-    aqui debo cargar el html para la vista
-    de los empleados donde se cambia el 
-    estado del pedido de en preparacion a listo
+    Envio al template la lista de pedidos en orden 
+    para que a traves del mismo 
+    los empleados monitoreen y modifiquen el estado del pedido
+    
     '''
     return render(request,"preparacion.html")
 
 def visualizar_estado(request):
+    lista = Pedido.objects.all()
     '''
-    aqui debo cargar el html para la vista
-    de los pedidos actuales y el estado
+    Envio los pedidos actuales al template para que
+    este los muestre con su estado actual para que 
+    los clientes monitoreen su estado
     '''
     return render(request,"entrega.html")
